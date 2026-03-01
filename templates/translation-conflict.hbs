@@ -1,0 +1,55 @@
+<div>
+    <div style="padding:10px;">
+        <p>{{labels.descConflict}}</p>
+        <div style="border:1px solid #999; padding:5px; background:#fff; max-height: 60vh; overflow-y: auto;">
+            <ul style='padding-left:0; list-style:none;'>
+                {{#each conflicts}}
+                <li
+                    style="margin-bottom:10px; padding:10px; background:#f0f0f0; border:1px solid #ccc; border-radius:5px;">
+                    <div
+                        style="font-weight:bold; color:#d00; margin-bottom:5px; border-bottom:1px solid #ddd; padding-bottom:3px;">
+                        {{../labels.labelConflictChanged}}
+                    </div>
+
+                    <div style="margin-bottom:8px;">
+                        {{#if this.originalContext}}
+                        <div
+                            style="font-family:inherit; font-size:0.9em; line-height:1.4; color:#333; background:#fff; padding:6px; border:1px solid #ccc; border-radius:3px; margin-bottom:5px;">
+                            <b>{{../labels.labelOriginalContext}}</b><br><i>"{{{this.originalContext}}}"</i>
+                        </div>
+                        {{/if}}
+                        {{#if this.newContext}}
+                        <div
+                            style="font-family:inherit; font-size:0.9em; line-height:1.4; color:#333; background:#fff; padding:6px; border:1px solid #ccc; border-radius:3px; margin-bottom:5px; border-left: 4px solid #d00;">
+                            <b>{{../labels.labelNewContext}}</b><br><i>"{{{this.newContext}}}"</i>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                    <div
+                        style="display:flex; justify-content:center; gap:20px; align-items:center; background:#eee; padding:5px; border-radius:3px; border: 1px solid #ccc;">
+                        <label style="cursor:pointer; font-size:0.9em; display:flex; align-items:center; color: #333;">
+                            <input type="radio" name="conflict_{{this.id}}" value="restore" checked
+                                style="margin-right:5px;">
+                            <span>{{{localize "DH_AI_TRANSLATOR.UI.RadioRestore" term=this.original}}}</span>
+                        </label>
+                        <label style="cursor:pointer; font-size:0.9em; display:flex; align-items:center; color: #333;">
+                            <input type="radio" name="conflict_{{this.id}}" value="keep" style="margin-right:5px;">
+                            <span>{{{localize "DH_AI_TRANSLATOR.UI.RadioKeep" term=this.current}}}</span>
+                        </label>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <p style="margin-top:10px; font-style:italic; font-size:0.9em;">
+            {{labels.descConflictHint}}
+        </p>
+    </div>
+    <div class="flexrow" style="margin-top: 10px; gap: 5px;">
+        <button type="button" data-action="apply"><i class="fas fa-check"></i> {{labels.btnApplyResolution}}</button>
+        <button type="button" data-action="useAllNew"><i class="fas fa-fast-forward"></i>
+            {{labels.btnUseAllNew}}</button>
+        <button type="button" data-action="cancel"><i class="fas fa-times"></i> {{labels.btnCancel}}</button>
+    </div>
+</div>

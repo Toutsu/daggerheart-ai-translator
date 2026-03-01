@@ -1,0 +1,17 @@
+<div>
+    <div class="ai-assistant-content">
+        {{#if errorMsg}}
+        <div style="color:red; border:1px solid red; padding:5px; margin-bottom:5px;">{{errorMsg}}</div>
+        {{/if}}
+
+        <p>{{label}}</p>
+        <textarea name="aiResponse" style="width:100%; height: 300px;"
+            placeholder="{{placeholderText}}">{{initialContent}}</textarea>
+    </div>
+    <div class="flexrow" style="margin-top: 10px; gap: 5px;">
+        <button type="button" data-action="update"><i class="fas fa-arrow-right"></i> {{btnLabel}}</button>
+        {{#if isGlossaryMode}}
+        <button type="button" data-action="skip"><i class="fas fa-forward"></i> {{btnSkip}}</button>
+        {{/if}}
+    </div>
+</div>

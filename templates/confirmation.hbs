@@ -1,0 +1,10 @@
+<div>
+    <div class="ai-assistant-content">
+        <p>{{{content}}}</p>
+    </div>
+    <div class="flexrow" style="margin-top: 10px; gap: 5px;">
+        {{#each buttons}}
+        <button type="button" data-action="{{this.action}}"><i class="{{this.icon}}"></i> {{this.label}}</button>
+        {{/each}}
+    </div>
+</div>

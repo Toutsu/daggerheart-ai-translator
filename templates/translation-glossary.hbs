@@ -1,0 +1,20 @@
+<div>
+    <div class="ai-assistant-content">
+        <p>{{labels.textNewTermsFound}}</p>
+        <div style="max-height: 200px; overflow-y: auto; background: #eee; padding: 5px; color: #333;">
+            {{#if newItems}}
+            <ul style="padding-left: 20px;">
+                {{#each newItems}}
+                <li><b>{{this.original}}</b> -> {{this.translation}}</li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p>(No terms to display???)</p>
+            {{/if}}
+        </div>
+    </div>
+    <div class="flexrow" style="margin-top: 10px; gap: 5px;">
+        <button type="button" data-action="add"><i class="fas fa-plus"></i> {{labels.btnAddToGlossary}}</button>
+        <button type="button" data-action="cancel"><i class="fas fa-times"></i> {{labels.btnCancel}}</button>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div style="height: 100%; display: flex; flex-direction: column;">
+    <div class="ai-assistant-content"
+        style="flex: 1; display: flex; flex-direction: column; min-height: 0; padding-bottom: 5px;">
+        <h3 style="flex: 0 0 auto;">{{title}}</h3>
+
+        {{#if hasPages}}
+        <div
+            style="flex: 1; display: flex; flex-direction: column; min-height: 100px; margin-bottom:10px; border:1px solid #444; padding:5px;">
+            <label style="font-weight:bold; flex: 0 0 auto;">{{labels.labelPagesToTranslate}}</label>
+
+            <div style="display:flex; gap:5px; margin-bottom:5px; flex: 0 0 auto;">
+                <button type="button" data-action="toggleSelect"
+                    style="flex:1; font-size:11px; line-height:20px; height:24px;"><i class="fas fa-check-double"></i>
+                    {{labels.btnToggleSelect}}</button>
+                <button type="button" data-action="selectNext"
+                    style="flex:1; font-size:11px; line-height:20px; height:24px;"><i class="fas fa-forward"></i>
+                    {{labels.btnNextBatch}}</button>
+            </div>
+
+            <div style="flex: 1; overflow-y:auto;" id="page-list-container">
+                {{#each pages}}
+                <div style="display:flex; align-items:center; margin-bottom:4px; font-size:0.9em;">
+                    <input type="checkbox" class="page-selector" value="{{this.id}}" {{#if this.checked}}checked{{/if}}
+                        style="margin-right:8px;">
+                    <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"
+                        title="{{this.name}}">{{this.name}}</span>
+                    {{#if this.isProcessed}}<i class="fas fa-check-circle" style="color:#2ecc71; margin-left:4px;"
+                        title="Translated"></i>{{/if}}
+                    {{#if this.isGrammarChecked}}<i class="fas fa-spell-check" style="color:#3498db; margin-left:4px;"
+                        title="Grammar Checked"></i>{{/if}}
+                </div>
+                {{/each}}
+            </div>
+
+            <div id="page-limit-warning"
+                style="{{#unless showWarning}}display:none;{{/unless}} color:#ff0000; background-color:#ffe6e6; border:1px solid #ff0000; font-weight:bold; font-size:0.9em; margin-top:5px; padding:5px; border-radius:4px; flex: 0 0 auto;">
+                <i class="fas fa-exclamation-triangle"></i> {{labels.warnPageLimit}}
+            </div>
+        </div>
+        <div style="margin-bottom:10px; flex: 0 0 auto;">
+            <input type="checkbox" id="only-names-check" {{#if onlyNames}}checked{{/if}}> <label
+                for="only-names-check">{{labels.labelOnlyNames}}</label>
+        </div>
+        {{/if}}
+
+        <div class="form-group" style="flex: 0 0 auto;">
+            <label>{{labels.labelCustomInstruct}}</label>
+            <textarea name="prompt" style="width:100%; height: 60px;"
+                placeholder="{{labels.placeholderCustomInstruct}}">{{prompt}}</textarea>
+        </div>
+    </div>
+    <div class="flexrow" style="margin-top: 10px; gap: 5px; flex: 0 0 auto;">
+        <button type="button" data-action="copyPrompt"><i class="fas fa-language"></i> {{labels.btnCopy}}</button>
+        <button type="button" data-action="grammarCheck"><i class="fas fa-check-double"></i>
+            {{labels.btnGrammarCheck}}</button>
+    </div>
+</div>
