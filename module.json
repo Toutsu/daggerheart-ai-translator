@@ -1,7 +1,7 @@
 {
     "id": "daggerheart-ai-translator",
     "title": "Daggerheart Russian AI Translator",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "AI Translation Assistant for Daggerheart (EN→RU). Supports Gemini, ChatGPT, Claude, Copilot, and Perplexity. Based on Phil's PF2e AI Translator.",
     "authors": [
         {

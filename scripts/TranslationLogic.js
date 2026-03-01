@@ -1,4 +1,4 @@
-export const MODULE_ID = 'daggerheart-ru-ai-translator';
+export const MODULE_ID = 'daggerheart-ai-translator';
 console.log("DH Translator | Logic loaded");
 import { DictionaryLoader } from "./DictionaryLoader.js";
 import { TermReplacer } from "./TermReplacer.js";
@@ -11,7 +11,7 @@ export async function calculateTranslationStats() {
     const journals = game.journal;
     for (const journal of journals) {
         for (const page of journal.pages) {
-            const flags = page.flags['daggerheart-ru-ai-translator'];
+            const flags = page.flags['daggerheart-ai-translator'];
             if (!flags) continue;
 
             // Strip HTML to get rough word count
