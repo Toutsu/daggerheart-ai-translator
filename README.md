@@ -26,7 +26,7 @@
 1. In Foundry VTT, go to **Settings → Manage Modules → Install Module**
 2. Paste the manifest URL:
    ```
-   https://github.com/Toutsu/daggerheart-ru-ai-translator/releases/latest/download/module.json
+   https://github.com/Toutsu/daggerheart-ai-translator/releases/latest/download/module.json
    ```
 3. Enable the module in your Daggerheart world
 
@@ -60,3 +60,4 @@
 ## License
 
 MIT
+
